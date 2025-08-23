@@ -41,7 +41,6 @@ export default function Header() {
             </li>
           </ul>
         </div>
-
         {/* Right Actions */}
         <div className="hidden lg:flex items-center gap-6">
           <Link
