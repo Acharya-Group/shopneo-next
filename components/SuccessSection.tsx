@@ -28,11 +28,11 @@ export default function SuccessSection() {
     <section className="success_section bg_golden py-12">
       <div className="max-w-7xl mx-auto px-4">
         {/* Heading */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold">
+        <div  className="text-center mb-10">
+          <h2 data-aos-duraction="1000" data-aos="fade-up" className="text-3xl font-semibold">
             Streamlined Payouts @ Shopneo Store
           </h2>
-          <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
+          <p data-aos-duraction="2000" data-aos="fade-up" className="text-gray-700 mt-2 max-w-2xl mx-auto">
             Experience quick and clear settlements with a fully transparent
             process, ensuring you get paid on time, every time.
           </p>
@@ -41,7 +41,7 @@ export default function SuccessSection() {
         {/* Slider */}
         <Slider ref={sliderRef} {...settings}>
           {successSlides.map((slide) => (
-            <div key={slide.id} className="p-2">
+            <div data-aos-duraction="3000" data-aos="flip-left" key={slide.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={slide.img}

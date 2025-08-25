@@ -27,14 +27,14 @@ export default function AgileSection() {
 
       <div className="max-w-7xl mx-auto py-12 px-4 text-center">
         {/* Heading */}
-        <h2 className="text-3xl font-semibold">Agile Architecture</h2>
-        <p className="text-gray-700 mt-2">
+        <h2 data-aos-duraction="1000" data-aos="fade-up" className="text-3xl font-semibold">Agile Architecture</h2>
+        <p data-aos-duraction="2000" data-aos="fade-up" className="text-gray-700 mt-2">
           A flexible, decoupled system designed for speed and scalability.
         </p>
 
         {/* Logo with blob shape + animation */}
        <div className="my-10 flex justify-center">
-  <div className="bg-[#f5a30a73] p-5 animate-blob-rotate">
+  <div data-aos="zoom-in" className="bg-[#f5a30a73] p-5 animate-blob-rotate">
     <Image
       src="/images/logo.webp"
       alt="ai new"
@@ -44,11 +44,10 @@ export default function AgileSection() {
   </div>
 </div>
 
-
         {/* Timeline cards */}
        <div className="timeline_main_parent grid grid-cols-1 md:grid-cols-4 gap-4 border-t-4 border-yellow-500 relative pt-4">
             {features.map((item, idx) => (
-              <div key={idx} className="px-2">
+              <div data-aos="zoom-in" key={idx} className="px-2">
                 <div className="timeline_card relative bg-yellow-100/50 border border-yellow-500 p-4 rounded-md">
                   {/* small connector above card */}
                   <span className="absolute -top-5 left-1/2 -translate-x-1/2 w-1 bg-yellow-500 h-5"></span>
@@ -64,19 +63,19 @@ export default function AgileSection() {
           Validated by Top Security Certifications
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <Image
+          <Image data-aos="flip-left"
             src="/images/certificed.webp"
             alt="verifird"
             width={100}
             height={100}
           />
-          <Image
+          <Image data-aos-duraction="1500" data-aos="flip-left"
             src="/images/google-verifird.webp"
             alt="google-verifird"
             width={100}
             height={100}
           />
-          <Image
+          <Image data-aos-duraction="3000" data-aos="flip-left"
             src="/images/iso-certificed.webp"
             alt="iso-verifird"
             width={100}

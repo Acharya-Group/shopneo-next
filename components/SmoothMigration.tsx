@@ -15,8 +15,8 @@ export default function SmoothMigration() {
     <section className="relative overflow-hidden">
       <div className="container mx-auto py-12 px-4">
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-semibold">Smooth Migration</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <h2 data-aos="fade-up" data-aos-duraction="000" data-aos-duarction="1000" className="text-2xl font-semibold">Smooth Migration</h2>
+          <p data-aos="fade-up" data-aos-duarction="2000" className="text-gray-700 max-w-2xl mx-auto">
             Quickly and easily transfer your entire catalog from your current
             platform with just a few simple steps.
           </p>
@@ -24,7 +24,7 @@ export default function SmoothMigration() {
           {/* Top Row */}
           <div className="flex justify-center items-center gap-4 sm:gap-10 pt-6 max-w-2xl mx-auto">
             {topLogos.map((logo, index) => (
-              <div
+              <div data-aos-duarction="1000" data-aos="flip-left"
                 key={index}
                 className="bg-[#f5a30a7a] hover:bg-[#f5a30a8a] transition-all duration-300 rounded-lg transform hover:scale-110 w-full h-20 sm:h-32 flex p-4 items-center justify-center"
               >
@@ -41,7 +41,7 @@ export default function SmoothMigration() {
 
           {/* ONDC Logo */}
           <div className="flex justify-center py-6">
-            <Image
+            <Image data-aos="zoom-in" data-aos-duarction="2000"
               src="/images/ondc-logo.svg"
               alt="ONDC Logo"
               width={300}
@@ -53,7 +53,7 @@ export default function SmoothMigration() {
           {/* Bottom Row */}
           <div className="flex justify-center gap-4 sm:gap-10 pt-6n max-w-2xl mx-auto">
             {bottomLogos.map((logo, index) => (
-              <div
+              <div data-aos-duarction="2000" data-aos="flip-left"
                 key={index}
                 className="bg-[#f5a30a7a] hover:bg-[#f5a30a8a] transition-all duration-300 rounded-lg  transform hover:scale-110 w-full h-20 sm:h-32 flex items-center justify-center p-4"
               >

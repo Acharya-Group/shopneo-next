@@ -20,10 +20,10 @@ export default function FAQSection() {
     <section className="relative overflow-hidden bg_golden">
       <div className="container mx-auto py-12">
         <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-4xl font-semibold">
+          <h2 data-aos="fade-up" data-aos-duraction="1000" className="text-2xl md:text-4xl font-semibold">
             Minimal Commissions
           </h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
+          <p data-aos-duraction="2000" data-aos="fade-up" className="text-gray-700 max-w-2xl mx-auto">
             Quickly and easily transfer your entire catalog from your current
             platform with just a few simple steps.
           </p>
@@ -31,7 +31,7 @@ export default function FAQSection() {
 
         <div className="max-w-4xl mx-auto px-4 flex flex-col gap-3">
           {faqs.map((faq, index) => (
-            <div
+            <div data-aos="zoom-in" data-aos-duraction="3000"
               key={index}
               className="bg-[#f5a10a] px-4 py-3 rounded-lg cursor-pointer transition"
             >

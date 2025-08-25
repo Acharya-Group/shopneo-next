@@ -29,10 +29,10 @@ export default function SmartShippingSection() {
     <section className="py-12 md:py-16">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <h2 className="text-center text-2xl md:text-3xl font-semibold">
+        <h2 data-aos-duraction="1000" data-aos="fade-up" className="text-center text-2xl md:text-3xl font-semibold">
           Smart Shipping @ Shopneo
         </h2>
-        <p className="text-center text-base font-medium mt-2 mb-6">
+        <p data-aos-duraction="2000" data-aos="fade-up" className="text-center text-base font-medium mt-2 mb-6">
           Fully Automated Shipping, From Order to Delivery
         </p>
 
@@ -74,7 +74,7 @@ export default function SmartShippingSection() {
         {/* Logos Slider */}
         <Slider {...logoSettings} className="mt-6">
           {SmartlogosSlide.map((logo, idx) => (
-            <div key={idx} className="flex justify-center items-center p-4">
+            <div data-aos="flip-left" data-aos-duraction="2000" key={idx} className="flex justify-center items-center p-4">
               <Image
                 src={logo}
                 alt={`Logistics Partner ${idx + 1}`}

@@ -35,19 +35,19 @@ export default function TruestedPartners() {
 
   return (
     <section className="bg_golden py-10">
-      <div className="px-4">
+      <div  className="px-4">
         {/* Heading */}
-        <h2 className="text-center text-2xl md:text-3xl font-semibold">
+        <h2 data-aos="fade-up" data-aos-duraction="1000" className="text-center text-2xl md:text-3xl font-semibold">
           Optimized Logistics @ Shopneo
         </h2>
-        <p className="text-center text-base font-medium mt-2 mb-6 px-2">
+        <p data-aos="fade-up" data-aos-duraction="2000" className="text-center text-base font-medium mt-2 mb-6 px-2">
           Comprehensive, Automated Shipping Solutions to Boost Efficiency
         </p>
 
         {/* Logo Slider */}
         <Slider {...settings}>
           {trustedLogos.map((logo, idx) => (
-            <div
+            <div data-aos="flip-left" data-aos-duraction="2000"
               key={idx}
               className="flex justify-center items-center p-4"
             >

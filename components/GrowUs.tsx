@@ -24,13 +24,13 @@ export default function SliderSection() {
 
   return (
     <section className="py-10">
-      <h2 data-aos="fade-up" className="fs-lg text-center px-3 mb-6 font-semibold">
+      <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg text-center px-3 mb-6 font-semibold">
         20,000+ Sellers Growing With Us
       </h2>
 
       <Slider {...settings}>
         {slides.map((src, idx) => (
-          <div key={idx} className="flex justify-center items-center px-3 h-16">
+          <div data-aos-duraction="3000" data-aos="flip-left" key={idx} className="flex justify-center items-center px-3 h-16">
             <div className="w-24 sm:w-28 md:w-32">
               <Image
                 src={src}

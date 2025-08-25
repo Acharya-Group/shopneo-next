@@ -7,14 +7,14 @@ export default function OndcSection() {
     <section className="bg_golden">
       <div className="container mx-auto py-10 md:py-16 px-4">
         {/* Heading */}
-        <h2 data-aos="fade-up" className="fs-lg text-center font-semibold mb-8">
+        <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg text-center font-semibold mb-8">
           Seamless ONDC Network Integration
         </h2>
 
         {/* Content */}
         <div className="flex flex-col-reverse md:flex-row items-center md:justify-between gap-8">
           {/* Left Text */}
-          <div data-aos="fade-right" className="md:w-1/2">
+          <div data-aos="fade-right" data-aos-duraction="2000" className="md:w-1/2">
             <h2 className="fs-md font-semibold text-center md:text-left mb-4">
               Effortlessly Integrate with the ONDC Network
             </h2>
@@ -29,7 +29,7 @@ export default function OndcSection() {
           </div>
 
           {/* Right Image */}
-          <div data-aos="fade-left" className="md:w-1/2 w-10/12">
+          <div data-aos="fade-left" data-aos-duraction="2000" className="md:w-1/2 w-10/12">
             <Image
               src="/images/seller-ondc-buyar.webp"
               alt="connect"

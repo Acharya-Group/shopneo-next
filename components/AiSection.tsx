@@ -8,8 +8,8 @@ export default function AiSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 relative">
           {/* Heading */}
-          <h2 data-aos="fade-up" className="fs-lg font-semibold">AI for Ecommerce Growth</h2>
-          <p data-aos="fade-up" className="fs-base">
+          <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg font-semibold">AI for Ecommerce Growth</h2>
+          <p data-aos="fade-up" data-aos-duraction="2000" className="fs-base">
             Boost conversions and streamline operations with AI-driven solutions.
           </p>
 

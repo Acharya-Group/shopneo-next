@@ -28,11 +28,11 @@ export default function SuccessStories() {
     <section className="success_section py-12">
       <div className="container mx-auto px-4">
         {/* Heading */}
-        <div data-aos="fade-up" className="text-center mb-8">
-          <h2 className="fs-lg font-semibold">
+        <div className="text-center mb-8">
+          <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg font-semibold">
             Unlock the Future of Fast Commerce
           </h2>
-          <p className="fs-base">
+          <p data-aos="fade-up" data-aos-duraction="2000" className="fs-base">
             Empower your business with a seamless, white-label quick commerce
             solution
           </p>
@@ -41,7 +41,7 @@ export default function SuccessStories() {
         {/* Slider */}
         <Slider ref={sliderRef} {...settings} className="success_slider">
           {unlockStories.map((story) => (
-            <div key={story.id} className="p-2">
+            <div data-aos-duraction="3000" data-aos="flip-left" key={story.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={story.img}
