@@ -24,7 +24,7 @@ export default function SliderSection() {
 
   return (
     <section className="py-10">
-      <h2 className="fs-lg text-center px-3 mb-6 font-semibold">
+      <h2 data-aos="fade-up" className="fs-lg text-center px-3 mb-6 font-semibold">
         20,000+ Sellers Growing With Us
       </h2>
 

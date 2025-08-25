@@ -8,8 +8,8 @@ export default function AiSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 relative">
           {/* Heading */}
-          <h2 className="fs-lg font-semibold">AI for Ecommerce Growth</h2>
-          <p className="fs-base">
+          <h2 data-aos="fade-up" className="fs-lg font-semibold">AI for Ecommerce Growth</h2>
+          <p data-aos="fade-up" className="fs-base">
             Boost conversions and streamline operations with AI-driven solutions.
           </p>
 
@@ -29,7 +29,7 @@ export default function AiSection() {
           {/* Timeline Parent */}
           <div className="timeline_main_parent grid grid-cols-1 md:grid-cols-4 gap-4 border-t-4 border-yellow-500 relative pt-4">
             {Aifeatures.map((item, idx) => (
-              <div key={idx} className="px-2">
+              <div data-aos="zoom-in" key={idx} className="px-2">
                 <div className="timeline_card relative bg-yellow-100/50 border border-yellow-500 p-4 rounded-md">
                   {/* small connector above card */}
                   <span className="absolute -top-5 left-1/2 -translate-x-1/2 w-1 bg-yellow-500 h-5"></span>

@@ -28,7 +28,7 @@ export default function SuccessStories() {
     <section className="success_section py-12">
       <div className="container mx-auto px-4">
         {/* Heading */}
-        <div className="text-center mb-8">
+        <div data-aos="fade-up" className="text-center mb-8">
           <h2 className="fs-lg font-semibold">
             Unlock the Future of Fast Commerce
           </h2>
