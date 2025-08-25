@@ -40,6 +40,14 @@ export default function Header() {
                 Contact Us
               </Link>
             </li>
+            <li>
+              <Link
+                href="/sellers"
+                className="relative text-gray-800 hover:text-yellow-500 after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
+              >
+               Our Partners
+              </Link>
+            </li>
           </ul>
         </div>
         {/* Right Actions */}
