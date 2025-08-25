@@ -22,7 +22,7 @@ export default function AgileSection() {
     },
   ];
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-x-hidden">
       {/* Top Left Icon */}
       <div className="absolute top-[10px] left-[-50px] hidden sm:flex rotate-180">
         <Image
