@@ -13,7 +13,9 @@ export default function SellerDetail({ params }) {
     <div className="container mx-auto px-6 py-10">
       {/* Seller Header */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-10">
-        <img
+        <Image 
+        height={128}
+        width={128}
           src={seller.logo}
           alt={seller.name}
           className="w-24 h-24 md:w-32 md:h-32 rounded-full border shadow"

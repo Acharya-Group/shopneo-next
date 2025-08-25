@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
-  // ✅ Moved all maps/arrays to the top
+  // ✅ Arrays at the top
   const socialLinks = [
     { href: "http://facebook.com/Mystore-105648418975326", icon: "fab fa-facebook" },
     { href: "http://twitter.com/mystoreforindia", icon: "fab fa-twitter" },
@@ -35,9 +35,9 @@ export default function Footer() {
               we open new opportunities for business growth.
             </p>
             <p className="text-sm opacity-75 mb-3">
-              As a seller, you’ll get a personalized store page with your own digital catalog
-              and a unique QR code to promote your products.
-              Your catalog will be available across the ONDC network, reaching a wide range of potential buyers.
+              As a seller, you&apos;ll get a personalized store page with your own digital catalog
+              and a unique QR code to promote your products. Your catalog will be available
+              across the ONDC network, reaching a wide range of potential buyers.
             </p>
             <p className="text-sm opacity-75">
               For shoppers, Shopneo offers a seamless shopping experience,

@@ -6,7 +6,6 @@ import UnlockFuture from "@/components/UnlockFuture";
 import AiSection from "@/components/AiSection";
 import Management from "@/components/Management";
 import TrustedPartners from "@/components/TrustedPartners";
-import { Unlock } from "lucide-react";
 import SmartShipping from "@/components/SmartShipping";
 import SuccessSection from "@/components/SuccessSection";
 import AgileSection from "@/components/AgileSection";
