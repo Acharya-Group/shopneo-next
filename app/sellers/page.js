@@ -9,7 +9,7 @@ export default function SellersPage() {
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
-  const sellersPerPage = 2; // change this for more/less per page
+  const sellersPerPage = 9; 
 
   // 1. Filter + Search logic
   const filteredSellers = sellers.filter((seller) => {
@@ -27,7 +27,7 @@ export default function SellersPage() {
   const currentSellers = filteredSellers.slice(indexOfFirst, indexOfLast);
 
   return (
-    <div className="p-6">
+    <div className="container mx-auto px-4 py-12">
       <h1 className="text-2xl font-bold mb-4">All Sellers</h1>
 
       {/* Search + Filter Controls */}
@@ -37,15 +37,15 @@ export default function SellersPage() {
           placeholder="Search sellers..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border rounded p-2 w-1/2"
+          className="border rounded p-2 w-10/12"
         />
         <select
           value={filter}
           onChange={(e) => {
             setFilter(e.target.value);
-            setCurrentPage(1); // reset to first page
+            setCurrentPage(1);
           }}
-          className="border rounded p-2"
+          className="border rounded py-2 px-3"
         >
           <option value="All">All Categories</option>
           <option value="Electronics">Electronics</option>
@@ -55,24 +55,32 @@ export default function SellersPage() {
       </div>
 
       {/* Sellers List */}
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {currentSellers.map((seller) => (
-          <li key={seller.id} className="p-4 border rounded-lg shadow">
-            <h2 className="text-xl font-semibold">{seller.name}</h2>
-            <p className="text-gray-600">{seller.description}</p>
-            <span className="text-sm text-gray-500">
-              Category: {seller.category}
-            </span>
-            <br />
-            <Link
-              href={`/sellers/${seller.id}`}
-              className="text-blue-600 hover:underline mt-2 inline-block"
-            >
-              View Details →
-            </Link>
-          </li>
-        ))}
-      </ul>
+     {/* Sellers List */}
+{currentSellers.length > 0 ? (
+  <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {currentSellers.map((seller) => (
+      <li key={seller.id} className="p-4 border rounded-lg shadow">
+        <h2 className="text-xl font-semibold">{seller.name}</h2>
+        <p className="text-gray-600">{seller.description}</p>
+        <span className="text-sm text-gray-500">
+          Category: {seller.category}
+        </span>
+        <br />
+        <Link
+          href={`/sellers/${seller.id}`}
+          className="text-blue-600 hover:underline mt-2 inline-block"
+        >
+          View Details →
+        </Link>
+      </li>
+    ))}
+  </ul>
+) : (
+  <p className="text-center text-gray-500 font-medium mt-8">
+    🚫 No sellers found matching your criteria.
+  </p>
+)}
+
 
       {/* Pagination Controls */}
       <div className="flex justify-center items-center mt-6 gap-4">
