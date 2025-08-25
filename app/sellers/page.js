@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { sellers } from "@/data/sellers";
+import Image from "next/image";
 
 export default function SellersPage() {
   // State for search, filter, pagination
@@ -73,7 +74,9 @@ export default function SellersPage() {
             <h2 className="text-xl font-semibold">{seller.name}</h2>
             <p className="text-gray-600">{seller.description}</p>
           </div>
-           <img
+           <Image
+          width={80}
+          height={80}
           src={seller.logo}
           alt={seller.name}
           className="w-20 h-20 md:w-22 md:h-22 rounded-full border shadow"

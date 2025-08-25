@@ -3,42 +3,11 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import { useRef } from "react";
-
+import{successSlides} from "../data/common";
 export default function SuccessSection() {
   const sliderRef = useRef<Slider>(null);
 
-  const slides = [
-    {
-      id: 1,
-      img: "/images/success-stories-1.webp",
-      title: "Financial Hub",
-      desc: "Bring order to your product universe. Manage all your items, variants, and collections from a single dashboard.",
-    },
-    {
-      id: 2,
-      img: "/images/success-stories-2.webp",
-      title: "Get Paid Faster, Stay Compliant",
-      desc: "Take control of your finances. Our dashboard guarantees on-time payouts and instant access to invoices.",
-    },
-    {
-      id: 3,
-      img: "/images/success-stories-3.webp",
-      title: "Your Earnings, Simplified",
-      desc: "Effortlessly track every payout, access invoices, and enjoy peace of mind with built-in compliance.",
-    },
-    {
-      id: 4,
-      img: "/images/success-stories-4.webp",
-      title: "Streamline Your Settlements",
-      desc: "A central platform for managing payouts, e-invoices, and ensuring all transactions meet RSF 20 standards.",
-    },
-    {
-      id: 5,
-      img: "/images/success-stories-5.webp",
-      title: "Track. Manage. Get Paid.",
-      desc: "Immediately view payout status, download commission invoices, and verify compliance hassle-free.",
-    },
-  ];
+
 
   const settings = {
     infinite: true,
@@ -71,7 +40,7 @@ export default function SuccessSection() {
 
         {/* Slider */}
         <Slider ref={sliderRef} {...settings}>
-          {slides.map((slide) => (
+          {successSlides.map((slide) => (
             <div key={slide.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image

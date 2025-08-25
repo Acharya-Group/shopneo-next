@@ -2,47 +2,8 @@
 
 import Slider from "react-slick";
 import Image from "next/image";
-
+import { SmartSlides, SmartlogosSlide } from "../data/common";
 export default function SmartShippingSection() {
-  const slides = [
-    {
-      title: "Live Shipping Cost Fetching",
-      desc: "With Shopneo, you can fetch live shipping rates directly from top logistics partners in real time. This means that as your customers shop, the system will automatically apply accurate shipping costs to their cart. No more guesswork or manual adjustments—just seamless, transparent pricing from checkout to delivery.",
-      img: "/images/logistics-slide-1.webp",
-    },
-    {
-      title: "Auto-Select & Schedule Shipments",
-      desc: "Say goodbye to manual shipping carrier selection. Shopneo’s automated system intelligently assigns the best carrier based on your defined criteria. It schedules pickups and ensures that each order is shipped with minimal effort on your part. Focus on growing your business while Shopneo handles the logistics.",
-      img: "/images/logistics-slide-2.webp",
-    },
-    {
-      title: "Effortless Shipping Automation",
-      desc: "Shopneo redefines logistics by offering a fully automated system that streamlines everything from order processing to real-time tracking. This integration ensures smooth operations, reduces human error, and speeds up the entire fulfillment process. Whether you’re shipping locally or internationally, Shopneo has you covered.",
-      img: "/images/logistics-slide-3.webp",
-    },
-    {
-      title: "Streamlined Order Management via WhatsApp",
-      desc: "Shopneo enables one-click fulfillment through WhatsApp, making it easy to generate shipping labels and manage orders without leaving the platform. It’s a simple, efficient way to process orders, track shipments, and communicate with your customers—all through the most popular messaging app.",
-      img: "/images/logistics-slide-4.webp",
-    },
-  ];
-
-  const logos = [
-    "/images/slide-1.webp",
-    "/images/slide-2.webp",
-    "/images/slide-3.webp",
-    "/images/slide-4.webp",
-    "/images/slide-5.webp",
-    "/images/slide-6.webp",
-    "/images/slide-7.webp",
-    "/images/slide-8.webp",
-    "/images/slide-9.webp",
-    "/images/slide-10.webp",
-    "/images/slide-11.webp",
-    "/images/slide-12.webp",
-    "/images/slide-13.webp",
-    "/images/slide-14.webp",
-  ];
 
   const contentSettings = {
     infinite: true,
@@ -77,7 +38,7 @@ export default function SmartShippingSection() {
 
         {/* Content Slider */}
         <Slider {...contentSettings} className="mb-8">
-          {slides.map((slide, idx) => (
+          {SmartSlides.map((slide, idx) => (
             <div key={idx} className="px-4">
               <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
                 {/* Text */}
@@ -112,7 +73,7 @@ export default function SmartShippingSection() {
 
         {/* Logos Slider */}
         <Slider {...logoSettings} className="mt-6">
-          {logos.map((logo, idx) => (
+          {SmartlogosSlide.map((logo, idx) => (
             <div key={idx} className="flex justify-center items-center p-4">
               <Image
                 src={logo}

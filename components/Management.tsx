@@ -3,42 +3,10 @@
 import Slider from "react-slick";
 import Image from "next/image";
 import { useRef } from "react";
+import { managementSlides } from "../data/common";
 
 export default function ManagementSection() {
   const sliderRef = useRef<Slider | null>(null);
-
-  const slides = [
-    {
-        id: 1,
-      img: "/images/management-slide-1.webp",
-      title: "Centralized Product Catalog",
-      desc: "Bring order to your product universe. Manage all your items, variants, and collections from a single, intuitive dashboard. Update descriptions, prices, and images in seconds, ensuring your entire catalog is always accurate and up-to-date.",
-    },
-    {
-        id: 2,
-      img: "/images/management-slide-2.webp",
-      title: "Real-Time Inventory Tracking",
-      desc: "Never oversell or lose a sale to stockouts again. Shopneo automatically updates your inventory levels with every sale, return, and restock. Get a live view of your stock across all sales channels, all in one place.",
-    },
-    {
-        id: 3,
-      img: "/images/management-slide-3.webp",
-      title: "Bulk Editing & Import/Export",
-      desc: "Save hours on tedious data entry. Quickly make changes to hundreds of products at once or seamlessly import your entire catalog from a spreadsheet. Effortlessly export your data for reporting or migration, making bulk management a breeze.",
-    },
-    {
-        id: 4,
-      img: "/images/management-slide-4.webp",
-      title: "Low-Stock Alerts & Smart Reordering",
-      desc: "Stay proactive, not reactive. Set custom thresholds and receive instant notifications when inventory runs low. Make informed purchasing decisions with insights that help you reorder best-sellers on time and optimize your stock levels.",
-    },
-    {
-        id: 5,
-      img: "/images/management-slide-5.webp",
-      title: "Multi-Channel Sync",
-      desc: "Sell everywhere without the chaos. Keep your inventory and product details perfectly synchronized across your website, online marketplaces, and physical store. A sale on one platform instantly updates all others, eliminating sync errors.",
-    },
-  ];
 
   const settings = {
     infinite: true,
@@ -81,7 +49,7 @@ export default function ManagementSection() {
 
         {/* Slider */}
         <Slider ref={sliderRef} {...settings}>
-          {slides.map((slide ) => (
+          {managementSlides.map((slide ) => (
             <div key={slide.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image

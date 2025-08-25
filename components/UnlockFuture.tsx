@@ -3,46 +3,11 @@
 import Image from "next/image";
 import Slider from "react-slick";
 import { useRef } from "react";
-
-// slick css
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import { unlockStories } from "../data/common";
 
 export default function SuccessStories() {
   const sliderRef = useRef<Slider>(null);
 
-  const stories = [
-    {
-      id: 1,
-      img: "/images/success-stories-1.webp",
-      title: "Partner Networks",
-      desc: "Leverage local dealer partnerships to supercharge your delivery network.",
-    },
-    {
-      id: 2,
-      img: "/images/success-stories-2.webp",
-      title: "No Stores",
-      desc: "Streamline deliveries by tapping into existing dealer inventories for rapid fulfillment.",
-    },
-    {
-      id: 3,
-      img: "/images/success-stories-3.webp",
-      title: "Seller Tools",
-      desc: "Equip sellers with comprehensive tools for efficient operation and growth.",
-    },
-    {
-      id: 4,
-      img: "/images/success-stories-4.webp",
-      title: "Fast Delivery",
-      desc: "Enhance delivery speed through fully integrated local logistics solutions.",
-    },
-    {
-      id: 5,
-      img: "/images/success-stories-5.webp",
-      title: "Data Insights",
-      desc: "Make informed decisions with real-time data analytics to optimize operations.",
-    },
-  ];
 
   const settings = {
     infinite: true,
@@ -75,7 +40,7 @@ export default function SuccessStories() {
 
         {/* Slider */}
         <Slider ref={sliderRef} {...settings} className="success_slider">
-          {stories.map((story) => (
+          {unlockStories.map((story) => (
             <div key={story.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image

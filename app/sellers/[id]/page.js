@@ -1,5 +1,6 @@
 import { sellers } from "@/data/sellers";
 import Link from "next/link";
+import Image from "next/image";
 import { categoryImages } from "../../../data/sellers";
 
 export default function SellerDetail({ params }) {
@@ -49,7 +50,9 @@ export default function SellerDetail({ params }) {
             target="_blank"
             className="border rounded-xl p-6 flex flex-col items-center justify-center text-center bg-yellow-50 hover:bg-yellow-100 transition cursor-pointer"
           >
-           <img
+           <Image
+           height={64}
+           width={64}
   src={categoryImages[cat] || categoryImages.Default}
   alt={cat}
   className="w-16 h-16 object-contain mb-3"

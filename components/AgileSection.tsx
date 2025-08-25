@@ -1,26 +1,8 @@
 "use client";
-
 import Image from "next/image";
-
+import {features} from "../data/common";
 export default function AgileSection() {
-     const features = [
-    {
-      title: "Smart Descriptions",
-      desc: "Generate conversion-optimized, compelling product descriptions in seconds with AI precision.",
-    },
-    {
-      title: "Intelligent Search",
-      desc: "Unlock smarter search results and enhanced shopping experiences through AI-powered semantic search.",
-    },
-    {
-      title: "AI-Powered Support",
-      desc: "Agentic Bot: Empower your customer interactions with AI chatbots that engage, assist, and convert seamlessly.",
-    },
-    {
-      title: "Smart Product Suggestions",
-      desc: "Leverage personalized AI recommendations that boost sales and guide customers toward the best choices.",
-    },
-  ];
+ 
   return (
     <section className="relative overflow-x-hidden">
       {/* Top Left Icon */}

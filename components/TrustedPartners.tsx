@@ -2,24 +2,8 @@
 
 import Slider from "react-slick";
 import Image from "next/image";
-
+import { trustedLogos } from "../data/common";
 export default function TruestedPartners() {
-  const logos = [
-    "/images/slide-1.webp",
-    "/images/slide-2.webp",
-    "/images/slide-3.webp",
-    "/images/slide-4.webp",
-    "/images/slide-5.webp",
-    "/images/slide-6.webp",
-    "/images/slide-7.webp",
-    "/images/slide-8.webp",
-    "/images/slide-9.webp",
-    "/images/slide-10.webp",
-    "/images/slide-11.webp",
-    "/images/slide-12.webp",
-    "/images/slide-13.webp",
-    "/images/slide-14.webp",
-  ];
 
   const settings = {
     infinite: true,
@@ -62,7 +46,7 @@ export default function TruestedPartners() {
 
         {/* Logo Slider */}
         <Slider {...settings}>
-          {logos.map((logo, idx) => (
+          {trustedLogos.map((logo, idx) => (
             <div
               key={idx}
               className="flex justify-center items-center p-4"
