@@ -8,13 +8,13 @@ export default function HeroSection() {
         <div className="flex flex-col-reverse md:flex-row items-center justify-between">
           {/* Left Content */}
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="fs-xl font-semibold">
+            <h1 className="fs-xl font-semibold animate__animated animate__backInDown">
               Powering the Future of Online Commerce
             </h1>
-            <p className="fs-base mt-2">
+            <p className="fs-base mt-2 animate__animated animate__backInLeft animate__delay-1s">
               All-in-one ecosystem to grow your business.
             </p>
-            <div className="sm:mt-10 mt-6">
+            <div className="sm:mt-10 mt-6 animate__animated animate__swing animate__delay-2s">
                       <Button
                 label="Register as Seller"
                 href="https://admin-dashboard.shopneo.in/"

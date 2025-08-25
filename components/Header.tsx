@@ -54,7 +54,7 @@ export default function Header() {
         <div className="hidden lg:flex items-center gap-6"> 
            <Link
                href="https://admin-dashboard.shopneo.in/"
-                className="relative text-gray-800 hover:text-yellow-500 after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
+                className="relative animate__animated animate__slower animate__tada animate__infinite text-gray-800 hover:text-yellow-500 after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
               >
                 Seller Login
               </Link>
