@@ -11,14 +11,14 @@ export default function Footer() {
           <div className="md:col-span-4">
             <h5 className="text-lg font-semibold mb-3">About Shopneo</h5>
             <p className="text-sm opacity-75 mb-3">
-              Shopneo® is a dynamic marketplace exclusively for Indian sellers,
-              powered by ONDC. As the first ONDC network participant connecting
-              as both a Buyer and Seller NP, we open new opportunities for
-              business growth.
+              Shopneo&reg; is a dynamic marketplace exclusively for Indian
+              sellers, powered by ONDC. As the first ONDC network participant
+              connecting as both a Buyer and Seller NP, we open new
+              opportunities for business growth.
             </p>
             <p className="text-sm opacity-75 mb-3">
-              As a seller, you'll get a personalized store page with your own
-              digital catalog and a unique QR code to promote your products.
+              As a seller, you&apos;ll get a personalized store page with your
+              own digital catalog and a unique QR code to promote your products.
               Your catalog will be available across the ONDC network, reaching a
               broad range of potential buyers.
             </p>
@@ -31,11 +31,26 @@ export default function Footer() {
             {/* Social Media */}
             <ul className="flex gap-4 mt-4">
               {[
-                { href: "http://facebook.com/Mystore-105648418975326", icon: "fab fa-facebook" },
-                { href: "http://twitter.com/mystoreforindia", icon: "fab fa-twitter" },
-                { href: "http://linkedin.com/company/mystoreforindia/", icon: "fab fa-linkedin" },
-                { href: "http://youtube.com/channel/UCa9H_lreohMaNmVyQ7d8p8A", icon: "fab fa-youtube" },
-                { href: "http://instagram.com/mystoremarketplace/", icon: "fab fa-instagram" },
+                {
+                  href: "http://facebook.com/Mystore-105648418975326",
+                  icon: "fab fa-facebook",
+                },
+                {
+                  href: "http://twitter.com/mystoreforindia",
+                  icon: "fab fa-twitter",
+                },
+                {
+                  href: "http://linkedin.com/company/mystoreforindia/",
+                  icon: "fab fa-linkedin",
+                },
+                {
+                  href: "http://youtube.com/channel/UCa9H_lreohMaNmVyQ7d8p8A",
+                  icon: "fab fa-youtube",
+                },
+                {
+                  href: "http://instagram.com/mystoremarketplace/",
+                  icon: "fab fa-instagram",
+                },
               ].map((item, i) => (
                 <li key={i}>
                   <Link href={item.href} target="_blank">
@@ -45,14 +60,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul> 
+            </ul>
 
             {/* App Links */}
             <div className="flex gap-2 mt-4">
-              <Link
-                href="https://play.google.com"
-                target="_blank"
-              >
+              <Link href="https://play.google.com" target="_blank">
                 <Image
                   src="/images/play-store.png"
                   alt="Google Play Store"
@@ -60,10 +72,7 @@ export default function Footer() {
                   height={33}
                 />
               </Link>
-              <Link
-                href="https://apps.apple.com"
-                target="_blank"
-              >
+              <Link href="https://apps.apple.com" target="_blank">
                 <Image
                   src="/images/apple-store.png"
                   alt="Apple App Store"
@@ -78,7 +87,14 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h5 className="text-lg font-semibold mb-3">Pages</h5>
             <ul className="space-y-2 text-sm">
-              {["About Us","Career","Contact Us","Media","FAQ","Privacy Policy"].map((item, i) => (
+              {[
+                "About Us",
+                "Career",
+                "Contact Us",
+                "Media",
+                "FAQ",
+                "Privacy Policy",
+              ].map((item, i) => (
                 <li key={i}>
                   <Link
                     href="#"
@@ -166,11 +182,11 @@ export default function Footer() {
             <p className="text-sm opacity-75">
               <strong>Disclaimer</strong>
               <br />
-              All instances of "ONDC" and "Open Network For Digital Commerce"
-              refer to the "ONDC Network" and "ONDC Protocol", and not the ONDC
-              Section 8 company. Shopneo is a participant in the ONDC Network,
-              offering both Buyer and Seller apps in compliance with the ONDC
-              Protocol.
+              All instances of &quot;ONDC&quot; and &quot;Open Network For
+              Digital Commerce&quot; refer to the &quot;ONDC Network&quot; and
+              &quot;ONDC Protocol&quot;, and not the ONDC Section 8 company.
+              Shopneo is a participant in the ONDC Network, offering both Buyer
+              and Seller apps in compliance with the ONDC Protocol.
             </p>
           </div>
           <div className="xl:col-span-5 flex justify-center xl:justify-end gap-3">
@@ -203,11 +219,15 @@ export default function Footer() {
       <div className="py-3 border-t border-gray-700">
         <div className="container mx-auto flex flex-col md:flex-row justify-between text-center gap-2">
           <p className="text-sm opacity-75">
-            <Link href="https://ondc.org" target="_blank" className="hover:text-yellow-400">
+            <Link
+              href="https://ondc.org"
+              target="_blank"
+              className="hover:text-yellow-400"
+            >
               Powered by ONDC Protocol
             </Link>
           </p>
-          <p className="text-sm opacity-75">© Shopneo®. All Rights Reserved.</p>
+          <p className="text-sm opacity-75">&copy; Shopneo&reg;. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
