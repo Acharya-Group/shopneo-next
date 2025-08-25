@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react"; 
+import Button from "./Button";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,21 +43,20 @@ export default function Header() {
           </ul>
         </div>
         {/* Right Actions */}
-        <div className="hidden lg:flex items-center gap-6">
-          <Link
-            href="https://admin-dashboard.shopneo.in/"
-            target="_blank"
-            className="text-gray-800 hover:text-yellow-500 font-medium"
-          >
-            Seller Login
-          </Link>
-          <Link
-            href="https://admin-dashboard.shopneo.in/"
-            target="_blank"
-            className="px-4 py-2 rounded-full bg-yellow-500 text-white font-semibold hover:bg-yellow-600 transition"
-          >
-            Register as Seller
-          </Link>
+        <div className="hidden lg:flex items-center gap-6"> 
+           <Link
+               href="https://admin-dashboard.shopneo.in/"
+                className="relative text-gray-800 hover:text-yellow-500 after:absolute after:left-1/2 after:-bottom-1 after:h-[2px] after:w-0 after:bg-yellow-500 after:transition-all after:duration-300 hover:after:w-full hover:after:left-0"
+              >
+                Seller Login
+              </Link>
+          <Button
+  label="Register as Seller"
+  href="https://admin-dashboard.shopneo.in/"
+  target="_blank"
+  className="bg-yellow-500 text-white hover:bg-yellow-400"
+/>
+
         </div>
 
         {/* Mobile Menu Button */}

@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Button from "./Button";
 
 export default function HeroSection() {
   return (
     <section className="bg_golden">
-      <div className="container mx-auto py-10 px-4">
+      <div className="container mx-auto py-10 lg:py-20 px-4">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between">
           {/* Left Content */}
           <div className="md:w-1/2 text-center md:text-left">
@@ -13,14 +14,13 @@ export default function HeroSection() {
             <p className="fs-base mt-2">
               All-in-one ecosystem to grow your business.
             </p>
-            <div className="mt-4">
-              <a
-                target="_blank"
+            <div className="sm:mt-10 mt-6">
+                      <Button
+                label="Register as Seller"
                 href="https://admin-dashboard.shopneo.in/"
-                className="inline-block bg-[var(--yellow)] text-white font-medium px-6 py-2 rounded-lg hover:opacity-90 transition"
-              >
-                Register as seller
-              </a>
+                target="_blank"
+                className="bg-yellow-500 text-white hover:bg-yellow-400 py-3 px-6"
+              />
             </div>
           </div>
 

@@ -51,7 +51,7 @@ export default function TruestedPartners() {
 
   return (
     <section className="bg_golden py-10">
-      <div className="container mx-auto px-4">
+      <div className="px-4">
         {/* Heading */}
         <h2 className="text-center text-2xl md:text-3xl font-semibold">
           Optimized Logistics @ Shopneo

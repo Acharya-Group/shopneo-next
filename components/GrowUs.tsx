@@ -31,10 +31,10 @@ export default function SliderSection() {
     slidesToScroll: 1,
     arrows: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 6 } },
-      { breakpoint: 1024, settings: { slidesToShow: 4 } },
-      { breakpoint: 768, settings: { slidesToShow: 3 } },
-      { breakpoint: 640, settings: { slidesToShow: 2 } },
+      { breakpoint: 1280, settings: { slidesToShow: 8 } },
+      { breakpoint: 1024, settings: { slidesToShow: 7 } },
+      { breakpoint: 768, settings: { slidesToShow: 5 } },
+      { breakpoint: 640, settings: { slidesToShow: 3 } },
     ],
   };
 
@@ -46,7 +46,7 @@ export default function SliderSection() {
 
       <Slider {...settings}>
         {slides.map((src, idx) => (
-          <div key={idx} className="flex justify-center items-center px-3">
+          <div key={idx} className="flex justify-center items-center px-3 h-16">
             <div className="w-24 sm:w-28 md:w-32">
               <Image
                 src={src}

@@ -32,6 +32,27 @@ body {
 .fs-lg { font-size: var(--fs-lg); }
 .fs-xl { font-size: var(--fs-xl); }
 
+/* Morphing blob animation */
+@keyframes blob-rotate {
+  0% {
+    border-radius: 51% 49% 70% 30% / 30% 44% 56% 70%;
+  }
+  50% {
+    border-radius: 100% 0% 100% 0% / 0% 99% 1% 100%;
+  }
+  75% {
+    border-radius: 79% 21% 83% 17% / 0% 100% 0% 100%;
+  }
+  100% {
+    border-radius: 51% 49% 70% 30% / 30% 44% 56% 70%;
+  }
+}
+
+.animate-blob-rotate {
+  animation: blob-rotate 8s linear infinite;
+}
+
+
 /* breakpoints */
 @media (min-width: 576px) {
   :root {

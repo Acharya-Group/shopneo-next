@@ -79,7 +79,7 @@ export default function SmartShippingSection() {
         <Slider {...contentSettings} className="mb-8">
           {slides.map((slide, idx) => (
             <div key={idx} className="px-4">
-              <div className="flex flex-wrap flex-col flex-row-reverse md:flex-row items-center justify-between gap-6">
+              <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
                 {/* Text */}
                 <div className="md:w-1/2">
                   <h3 className="text-xl md:text-2xl font-semibold text-center md:text-left">
