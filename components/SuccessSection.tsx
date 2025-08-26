@@ -2,13 +2,14 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import type { Swiper as SwiperClass } from "swiper"; // ✅ Import type
 import Image from "next/image";
 import { successSlides } from "../data/common";
 import { useRef } from "react";
 
-
 export default function SuccessSection() {
-  const swiperRef = useRef<any>(null);
+  // ✅ Correctly typed ref
+  const swiperRef = useRef<SwiperClass | null>(null);
 
   return (
     <section className="success_section bg_golden py-12">

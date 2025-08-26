@@ -12,9 +12,11 @@ import AgileSection from "@/components/AgileSection";
 import MinimalCommission from "@/components/MinialCommision";
 import SmoothMigration from "@/components/SmoothMigration";
 import FaqSection from "@/components/FaqSection";
+import BackToTop from '@/components/BackToTop';
 const page = () => {
   return (
     <>
+    <BackToTop/>
      <Hero/>
         <GrowUs/>
         <ConnectOndc/>
