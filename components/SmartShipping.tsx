@@ -21,7 +21,7 @@ export default function SmartShippingSection() {
         <p
           data-aos-duration="2000"
           data-aos="fade-up"
-          className="text-center text-base font-medium mt-2 mb-6"
+          className="text-center text-base font-medium mt-2 mb-10"
         >
           Fully Automated Shipping, From Order to Delivery
         </p>
@@ -40,13 +40,13 @@ export default function SmartShippingSection() {
         >
           {SmartSlides.map((slide, idx) => (
             <SwiperSlide key={idx} className="px-4">
-              <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
+              <div className="flex flex-col-reverse md:flex-row-reverse items-center justify-between gap-6">
                 {/* Text */}
                 <div className="md:w-1/2">
                   <h3 className="text-xl md:text-2xl font-semibold text-center md:text-left">
                     {slide.title}
                   </h3>
-                  <p className="text-center md:text-left mt-3 text-gray-700">
+                  <p className="text-center md:text-left mt-3 mb-0 text-gray-700">
                     {slide.desc}
                   </p>
                 </div>
