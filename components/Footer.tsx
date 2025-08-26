@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-black text-white">
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 pt-10 pb-3">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {/* About Shopneo */}
           <div className="md:col-span-4">

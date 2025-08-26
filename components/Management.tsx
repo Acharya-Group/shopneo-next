@@ -1,37 +1,12 @@
 "use client";
 
-import Slider from "react-slick";
 import Image from "next/image";
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { managementSlides } from "../data/common";
 
+
 export default function ManagementSection() {
-  const sliderRef = useRef<Slider | null>(null);
-
-  const settings = {
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: false,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 3 },
-      },
-      {
-        breakpoint: 576,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 400,
-        settings: { slidesToShow: 1 },
-      },
-    ],
-  };
-
   return (
     <section className="success_section py-12">
       <div className="container mx-auto px-4">
@@ -47,10 +22,26 @@ export default function ManagementSection() {
           </p>
         </div>
 
-        {/* Slider */}
-        <Slider ref={sliderRef} {...settings}>
-          {managementSlides.map((slide ) => (
-            <div key={slide.id} className="p-2">
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          slidesPerView={4}
+          spaceBetween={20}
+          navigation={{
+            prevEl: ".management-prev",
+            nextEl: ".management-next",
+          }}
+          breakpoints={{
+            992: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+            0: { slidesPerView: 1 },
+          }}
+          className="management_slider"
+        >
+          {managementSlides.map((slide) => (
+            <SwiperSlide key={slide.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={slide.img}
@@ -66,22 +57,16 @@ export default function ManagementSection() {
                   <p className="text-sm line-clamp-2">{slide.desc}</p>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
 
         {/* Custom Arrows */}
         <div className="flex justify-center mt-6 gap-4">
-          <button
-            onClick={() => sliderRef.current?.slickPrev()}
-            className="custom-arrow bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition"
-          >
+          <button className="management-prev bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition">
             ←
           </button>
-          <button
-            onClick={() => sliderRef.current?.slickNext()}
-            className="custom-arrow bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition"
-          >
+          <button className="management-next bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition">
             →
           </button>
         </div>

@@ -1,50 +1,45 @@
 "use client";
 
-import Slider from "react-slick";
 import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { SmartSlides, SmartlogosSlide } from "../data/common";
+
+
 export default function SmartShippingSection() {
-
-  const contentSettings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: false,
-  };
-
-  const logoSettings = {
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    slidesToShow: 6,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: false,
-      responsive: [
-      { breakpoint: 992, settings: { slidesToShow: 5 } },
-      { breakpoint: 576, settings: { slidesToShow: 3 } },
-      { breakpoint: 300, settings: { slidesToShow: 2 } },
-    ],
-  };
-
   return (
     <section className="py-12 md:py-16 overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Title */}
-        <h2 data-aos-duraction="1000" data-aos="fade-up" className="text-center text-2xl md:text-3xl font-semibold">
+        <h2
+          data-aos-duration="1000"
+          data-aos="fade-up"
+          className="text-center text-2xl md:text-3xl font-semibold"
+        >
           Smart Shipping @ Shopneo
         </h2>
-        <p data-aos-duraction="2000" data-aos="fade-up" className="text-center text-base font-medium mt-2 mb-6">
+        <p
+          data-aos-duration="2000"
+          data-aos="fade-up"
+          className="text-center text-base font-medium mt-2 mb-6"
+        >
           Fully Automated Shipping, From Order to Delivery
         </p>
 
         {/* Content Slider */}
-        <Slider {...contentSettings} className="mb-8">
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          loop={true}
+          navigation={{
+            prevEl: ".content-prev",
+            nextEl: ".content-next",
+          }}
+          slidesPerView={1}
+          className="mb-8"
+        >
           {SmartSlides.map((slide, idx) => (
-            <div key={idx} className="px-4">
+            <SwiperSlide key={idx} className="px-4">
               <div className="flex flex-col md:flex-row-reverse items-center justify-between gap-6">
                 {/* Text */}
                 <div className="md:w-1/2">
@@ -66,9 +61,19 @@ export default function SmartShippingSection() {
                   />
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
+
+        {/* Content Arrows */}
+        <div className="flex justify-center mt-6 gap-4">
+          <button className="content-prev bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition">
+            ←
+          </button>
+          <button className="content-next bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold hover:bg-yellow-600 transition">
+            →
+          </button>
+        </div>
 
         {/* Subtext */}
         <p className="text-center pt-6 text-gray-700 font-medium">
@@ -77,9 +82,25 @@ export default function SmartShippingSection() {
         </p>
 
         {/* Logos Slider */}
-        <Slider {...logoSettings} className="mt-6">
+        <Swiper
+          modules={[Autoplay]}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop={true}
+          speed={800}
+          slidesPerView={6}
+          breakpoints={{
+            992: { slidesPerView: 5 },
+            576: { slidesPerView: 3 },
+            300: { slidesPerView: 3 },
+            0: { slidesPerView: 1 },
+          }}
+          className="mt-6"
+        >
           {SmartlogosSlide.map((logo, idx) => (
-            <div key={idx} className="flex justify-center items-center p-4">
+            <SwiperSlide
+              key={idx}
+              className="flex justify-center items-center p-4"
+            >
               <Image
                 src={logo}
                 alt={`Logistics Partner ${idx + 1}`}
@@ -87,9 +108,9 @@ export default function SmartShippingSection() {
                 height={80}
                 className="object-contain w-full h-auto hover:scale-105 transition-transform duration-300"
               />
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
     </section>
   );

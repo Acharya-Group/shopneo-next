@@ -1,47 +1,54 @@
 "use client";
 
 import Image from "next/image";
-import Slider from "react-slick";
-import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 import { unlockStories } from "../data/common";
 
+
 export default function SuccessStories() {
-  const sliderRef = useRef<Slider>(null);
-
-
-  const settings = {
-    infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    dots: false,
-    arrows: false, // we'll use custom arrows
-    responsive: [
-      { breakpoint: 992, settings: { slidesToShow: 3 } },
-      { breakpoint: 576, settings: { slidesToShow: 2 } },
-      { breakpoint: 400, settings: { slidesToShow: 1 } },
-    ],
-  };
-
   return (
     <section className="success_section py-12">
       <div className="container mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-8">
-          <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg font-semibold">
+          <h2
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="fs-lg font-semibold"
+          >
             Unlock the Future of Fast Commerce
           </h2>
-          <p data-aos="fade-up" data-aos-duraction="2000" className="fs-base">
+          <p
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            className="fs-base"
+          >
             Empower your business with a seamless, white-label quick commerce
             solution
           </p>
         </div>
 
-        {/* Slider */}
-        <Slider ref={sliderRef} {...settings} className="success_slider">
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay, Navigation]}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          loop={true}
+          slidesPerView={4}
+          spaceBetween={20}
+          navigation={{
+            prevEl: ".custom-prev",
+            nextEl: ".custom-next",
+          }}
+          breakpoints={{
+            992: { slidesPerView: 3 },
+            576: { slidesPerView: 2 },
+            0: { slidesPerView: 1 },
+          }}
+          className="success_slider"
+        >
           {unlockStories.map((story) => (
-            <div key={story.id} className="p-2">
+            <SwiperSlide key={story.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={story.img}
@@ -57,22 +64,16 @@ export default function SuccessStories() {
                   <p className="text-sm line-clamp-2">{story.desc}</p>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
 
         {/* Custom Arrows */}
         <div className="flex justify-center mt-6 gap-4">
-          <button
-            onClick={() => sliderRef.current?.slickPrev()}
-            className="custom-arrow bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold"
-          >
+          <button className="custom-prev bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
             ←
           </button>
-          <button
-            onClick={() => sliderRef.current?.slickNext()}
-            className="custom-arrow bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold"
-          >
+          <button className="custom-next bg-yellow-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
             →
           </button>
         </div>

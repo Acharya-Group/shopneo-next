@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function OndcSection() {
   return (
-    <section className="bg_golden">
+    <section className="bg_golden overflow-x-hidden">
       <div className="container mx-auto py-10 md:py-16 px-4">
         {/* Heading */}
         <h2 data-aos="fade-up" data-aos-duraction="1000" className="fs-lg text-center font-semibold mb-8">
