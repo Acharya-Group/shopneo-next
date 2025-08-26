@@ -50,7 +50,7 @@ export default function ManagementSection() {
         {/* Slider */}
         <Slider ref={sliderRef} {...settings}>
           {managementSlides.map((slide ) => (
-            <div data-aos-duraction="3000" data-aos="flip-left" key={slide.id} className="p-2">
+            <div key={slide.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={slide.img}

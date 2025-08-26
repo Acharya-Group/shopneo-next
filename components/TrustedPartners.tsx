@@ -47,7 +47,7 @@ export default function TruestedPartners() {
         {/* Logo Slider */}
         <Slider {...settings}>
           {trustedLogos.map((logo, idx) => (
-            <div data-aos="flip-left" data-aos-duraction="2000"
+            <div
               key={idx}
               className="flex justify-center items-center p-4"
             >

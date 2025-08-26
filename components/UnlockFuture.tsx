@@ -41,7 +41,7 @@ export default function SuccessStories() {
         {/* Slider */}
         <Slider ref={sliderRef} {...settings} className="success_slider">
           {unlockStories.map((story) => (
-            <div data-aos-duraction="3000" data-aos="flip-left" key={story.id} className="p-2">
+            <div key={story.id} className="p-2">
               <div className="custom-card bg-white rounded-2xl border border-yellow-500 overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
                 <Image
                   src={story.img}

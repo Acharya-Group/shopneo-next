@@ -30,7 +30,7 @@ export default function SliderSection() {
 
       <Slider {...settings}>
         {slides.map((src, idx) => (
-          <div data-aos-duraction="3000" data-aos="flip-left" key={idx} className="flex justify-center items-center px-3 h-16">
+          <div key={idx} className="flex justify-center items-center px-3 h-16">
             <div className="w-24 sm:w-28 md:w-32">
               <Image
                 src={src}

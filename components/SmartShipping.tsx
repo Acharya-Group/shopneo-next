@@ -23,10 +23,15 @@ export default function SmartShippingSection() {
     slidesToScroll: 1,
     arrows: false,
     dots: false,
+      responsive: [
+      { breakpoint: 992, settings: { slidesToShow: 5 } },
+      { breakpoint: 576, settings: { slidesToShow: 3 } },
+      { breakpoint: 300, settings: { slidesToShow: 2 } },
+    ],
   };
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-12 md:py-16 overflow-x-hidden">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <h2 data-aos-duraction="1000" data-aos="fade-up" className="text-center text-2xl md:text-3xl font-semibold">
@@ -74,7 +79,7 @@ export default function SmartShippingSection() {
         {/* Logos Slider */}
         <Slider {...logoSettings} className="mt-6">
           {SmartlogosSlide.map((logo, idx) => (
-            <div data-aos="flip-left" data-aos-duraction="2000" key={idx} className="flex justify-center items-center p-4">
+            <div key={idx} className="flex justify-center items-center p-4">
               <Image
                 src={logo}
                 alt={`Logistics Partner ${idx + 1}`}

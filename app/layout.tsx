@@ -51,7 +51,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   }, []);
   return (
     <html lang="en">
-      <body className="overflow-x-hidden">
+      <body className="!overflow-x-hidden">
         <Header />
         <main>{children}</main>
         <Footer />

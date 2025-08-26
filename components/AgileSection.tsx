@@ -4,7 +4,7 @@ import {features} from "../data/common";
 export default function AgileSection() {
  
   return (
-    <section className="relative overflow-x-hidden">
+    <section className="relative overflow-x-clip">
       {/* Top Left Icon */}
       <div className="absolute top-[10px] left-[-50px] hidden sm:flex rotate-180">
         <Image
@@ -47,7 +47,7 @@ export default function AgileSection() {
         {/* Timeline cards */}
        <div className="timeline_main_parent grid grid-cols-1 md:grid-cols-4 gap-4 border-t-4 border-yellow-500 relative pt-4">
             {features.map((item, idx) => (
-              <div data-aos="zoom-in" key={idx} className="px-2">
+              <div data-aos="flip-left" key={idx} className="px-2">
                 <div className="timeline_card relative bg-yellow-100/50 border border-yellow-500 p-4 rounded-md">
                   {/* small connector above card */}
                   <span className="absolute -top-5 left-1/2 -translate-x-1/2 w-1 bg-yellow-500 h-5"></span>
