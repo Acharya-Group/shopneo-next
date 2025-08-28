@@ -32,14 +32,14 @@ export default function TruestedPartners() {
           autoplay={{ delay: 2000, disableOnInteraction: false }}
           loop={true}
           speed={800}
-          slidesPerView={6}
+          slidesPerView={8}
           breakpoints={{
             1200: { slidesPerView: 5 },
             992: { slidesPerView: 4 },
             768: { slidesPerView: 3 },
             0: { slidesPerView: 3 },
           }}
-          className="trusted_slider"
+          className="trusted_slider max-w-[2200px] mx-auto"
         >
           {trustedLogos.map((logo, idx) => (
             <SwiperSlide

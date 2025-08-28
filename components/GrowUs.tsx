@@ -29,7 +29,7 @@ export default function SliderSection() {
           640: { slidesPerView: 3 },
           0: { slidesPerView: 3 },
         }}
-        className="mySwiper"
+        className="mySwiper max-w-[2200px] mx-auto"
       >
         {slides.map((src, idx) => (
           <SwiperSlide

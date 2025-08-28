@@ -13,8 +13,8 @@ export default function Header() {
       <nav className="container mx-auto flex items-center justify-between px-4 py-3">
         {/* Logo */}
         <div className="flex items-center gap-10">
-          <Link href="/" className="flex items-center">
-            <Image
+          <Link href="/" className="flex  items-center">
+            <Image style={{width:"auto",height:"70px"}}
               src="/images/logo.webp"
               alt="logo"
               width={70}
@@ -68,7 +68,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
+        <button aria-label="Toggle Menu"
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden text-gray-800"
         >

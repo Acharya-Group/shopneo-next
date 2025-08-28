@@ -10,6 +10,7 @@
 
 body {
   font-family: "Source Sans 3", sans-serif;
+  box-sizing: border-box;
 }
 
 /* your root vars + custom classes here */
