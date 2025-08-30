@@ -88,12 +88,12 @@ export default function Page({ params }) {
 
         {customer.businessName && (
           <p className="text-lg font-semibold text-gray-600">
-            {customer.businessName}
+            🛍️{customer.businessName}
           </p>
         )}
 
         {customer.location && (
-          <p className="text-gray-500 text-sm">{customer.location}</p>
+          <p className="text-gray-500 text-sm">📍{customer.location}</p>
         )}
 
         {customer.description && (
@@ -292,8 +292,18 @@ export default function Page({ params }) {
                   height={200}
                   className="w-full h-40 object-cover rounded mb-4"
                 />
-                <h3 className="text-xl font-semibold mb-2">{blog.heading}</h3>
-                <p className="text-gray-600 text-sm">{blog.description}</p>
+               <h3 
+  title={blog.heading} 
+  className="text-xl font-semibold mb-2 truncate"
+>
+  {blog.heading}
+</h3>
+<p 
+  className="text-gray-600 text-sm line-clamp-2"
+>
+  {blog.description}
+</p>
+
               </SwiperSlide>
             ))}
           </Swiper>
