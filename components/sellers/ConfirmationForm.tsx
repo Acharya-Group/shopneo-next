@@ -26,7 +26,7 @@ const ConfirmationForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/sumitkhan.dhana@gmail.com`, {
+      const res = await fetch(`https://formsubmit.co/ajax/admin@shopneo.in`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
