@@ -23,7 +23,7 @@ export default function Page({ params }) {
   );
 
   if (!customer) {
-    return <div className="p-6 text-red-500">❌ Customer not found!</div>;
+    return <div className="p-6 text-red-500 text-center py-20">❌ Page not found!</div>;
   }
 
   // ✅ Share handler
@@ -191,7 +191,7 @@ export default function Page({ params }) {
                   target="_blank"
                   className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm"
                 >
-                  Order via WhatsApp
+                  Chat via WhatsApp
                 </Link>
               </SwiperSlide>
             ))}

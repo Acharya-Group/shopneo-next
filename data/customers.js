@@ -91,7 +91,6 @@ export const customers = [
   },
 ],
 
-
     businessHours: {
       monday: "10:00 AM - 8:00 PM",
       tuesday: "10:00 AM - 8:00 PM",
@@ -102,6 +101,4 @@ export const customers = [
       sunday: "Closed",
     },
   },
-
-
 ];

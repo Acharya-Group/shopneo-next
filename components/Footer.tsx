@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { pages, explore, collections, ondcNetwork, socialLinks } from "../data/common";
+import { link } from "fs";
 export default function Footer() {
 
   return (
@@ -71,16 +72,16 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h5 className="text-lg font-semibold mb-3">Explore</h5>
             <ul className="space-y-2 text-sm">
-              {explore.map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href="#"
-                    className="transition-all duration-300 opacity-75 hover:text-yellow-400 hover:opacity-100"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+               {explore.map((item, i) => (
+    <li key={i}>
+      <Link
+        href={item.url}
+        className="transition-all duration-300 opacity-75 hover:text-yellow-400 hover:opacity-100"
+      >
+        {item.title}
+      </Link>
+    </li>
+  ))}
             </ul>
           </div>
 
@@ -91,10 +92,10 @@ export default function Footer() {
               {collections.map((item, i) => (
                 <li key={i}>
                   <Link
-                    href="#"
+                    href={item.url}
                     className="transition-all duration-300 opacity-75 hover:text-yellow-400 hover:opacity-100"
                   >
-                    {item}
+                   {item.title}
                   </Link>
                 </li>
               ))}
@@ -108,10 +109,10 @@ export default function Footer() {
               {ondcNetwork.map((item, i) => (
                 <li key={i}>
                   <Link
-                    href="#"
+                    href={item.url}
                     className="transition-all duration-300 opacity-75 hover:text-yellow-400 hover:opacity-100"
                   >
-                    {item}
+                     {item.title}
                   </Link>
                 </li>
               ))}

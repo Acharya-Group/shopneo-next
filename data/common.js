@@ -122,14 +122,29 @@ export const faqs = [
   ];
 
   export const pages = ["About Us", "Careers", "Contact Us", "Media", "FAQ", "Privacy Policy"];
-  export const explore = ["Blogs", "Help Topics", "Sell on Mystore", "Product Sorting Criteria", "Seller Training Manual"];
-  export const collections = ["Amazing India", "Direct from Farmers", "Fashion on ONDC", "Home Decor on ONDC", "Summer Collection"];
-  export const ondcNetwork = [
-    "About ONDC Network",
-    "Sell on ONDC Network",
-    "Seller Manager on ONDC Network",
-    "Amazon Sellers on ONDC Network",
-  ];
+ export const explore = [
+  { title: "Blogs", url: "/blogs" },
+  { title: "Help Topics", url: "/help-topics" },
+  { title: "Sell on Shopneo", url: "/sell" },
+  { title: "Product Sorting Criteria", url: "/product-sorting" },
+  { title: "Seller Training Manual", url: "/training-manual" },
+  { title: "Seller Confirmation Form", url: "/Seller-confirmation" },
+];
+
+export const collections = [
+  { title: "Amazing India", url: "/collections/amazing-india" },
+  { title: "Direct from Farmers", url: "/collections/farmers" },
+  { title: "Fashion on ONDC", url: "/collections/fashion" },
+  { title: "Home Decor on ONDC", url: "/collections/home-decor" },
+  { title: "Summer Collection", url: "/collections/summer" },
+];
+
+export const ondcNetwork = [
+  { title: "About ONDC Network", url: "/ondc/about" },
+  { title: "Sell on ONDC Network", url: "/ondc/sell" },
+  { title: "Seller Manager on ONDC Network", url: "/ondc/seller-manager" },
+  { title: "Amazon Sellers on ONDC Network", url: "/ondc/amazon-sellers" },
+];
 
 
 //   grow us
