@@ -15,7 +15,7 @@ export default function Header() {
         <div className="flex items-center gap-10">
           <Link href="/" className="flex  items-center">
             <Image style={{width:"auto",height:"70px"}}
-              src="/images/logo.webp"
+              src="/images/new-logo.png"
               alt="logo"
               width={70}
               height={40}
