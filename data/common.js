@@ -55,7 +55,7 @@ export const faqs = [
   {
     question: "How do I register as a seller on ONDC?",
     answer:
-      "To register as a seller on ONDC, simply download a compatible seller app like Mystore, and follow the easy registration process...",
+      "To register as a seller on ONDC, simply download a compatible seller app like Shopneo, and follow the easy registration process...",
   },
   {
     question: "What are the benefits of joining the ONDC network?",
@@ -114,11 +114,11 @@ export const faqs = [
 
 // footer array
  export const socialLinks = [
-    { href: "http://facebook.com/Mystore-105648418975326", icon: "fab fa-facebook" },
-    { href: "http://twitter.com/mystoreforindia", icon: "fab fa-twitter" },
-    { href: "http://linkedin.com/company/mystoreforindia/", icon: "fab fa-linkedin" },
+    { href: "http://facebook.com/Shopneo-105648418975326", icon: "fab fa-facebook" },
+    { href: "http://twitter.com/Shopneoforindia", icon: "fab fa-twitter" },
+    { href: "http://linkedin.com/company/Shopneoforindia/", icon: "fab fa-linkedin" },
     { href: "http://youtube.com/channel/UCa9H_lreohMaNmVyQ7d8p8A", icon: "fab fa-youtube" },
-    { href: "http://instagram.com/mystoremarketplace/", icon: "fab fa-instagram" },
+    { href: "http://instagram.com/Shopneomarketplace/", icon: "fab fa-instagram" },
   ];
 
   export const pages = ["About Us", "Careers", "Contact Us", "Media", "FAQ", "Privacy Policy"];
