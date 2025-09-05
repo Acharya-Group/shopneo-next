@@ -12,6 +12,7 @@ import "swiper/css/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 
 // ✅ SEO Meta Data
  const metadata: Metadata = {
@@ -58,6 +59,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main>{children}</main>
         <Footer />
+      {/* ✅ Tawk.to Script */}
+      <Script id="tawk-to" strategy="afterInteractive">
+        {`
+          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+          (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/5b2b664cd0b5a54796820793/1j4cbl1fi';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+          })();
+        `}
+      </Script>
       </body>
     </html>
   );
