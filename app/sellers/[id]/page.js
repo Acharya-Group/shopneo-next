@@ -1,10 +1,17 @@
-import { sellers } from "@/data/sellers";
 import Link from "next/link";
 import Image from "next/image";
 import { categoryImages } from "../../../data/sellers";
 
-export default function SellerDetail({ params }) {
-  const seller = sellers.find((s) => s.id.toString() === params.id);
+export default async function SellerDetail({ params }) {
+  // ✅ API se sellers fetch
+  const res = await fetch("https://shopneo-backend.onrender.com/api/v1/seller/getsellers", {
+    cache: "no-store", 
+  });
+  const data = await res.json();
+
+  // API se sellers nikalna
+  const sellers = data.sellers || [];
+  const seller = sellers.find((s) => s._id.toString() === params.id);
 
   if (!seller) {
     return <div className="p-6 text-red-500">❌ Seller not found!</div>;
@@ -14,9 +21,9 @@ export default function SellerDetail({ params }) {
     <div className="container mx-auto px-6 py-10">
       {/* Seller Header */}
       <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-10">
-        <Image 
-        height={128}
-        width={128}
+        <Image
+          height={128}
+          width={128}
           src={seller.logo}
           alt={seller.name}
           className="w-24 h-24 md:w-32 md:h-32 rounded-full border shadow"
@@ -43,21 +50,20 @@ export default function SellerDetail({ params }) {
       {/* Categories Section */}
       <h2 className="text-2xl font-semibold mb-6">Categories</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {seller.category.map((cat, idx) => (
+        {seller.category?.map((cat, idx) => (
           <Link
             key={idx}
             href={seller.shopneoLink}
             target="_blank"
             className="border rounded-xl p-6 flex flex-col items-center justify-center text-center bg-yellow-50 hover:bg-yellow-100 transition cursor-pointer"
           >
-           <Image
-           height={64}
-           width={64}
-  src={categoryImages[cat] || categoryImages.Default}
-  alt={cat}
-  className="w-16 h-16 object-contain mb-3"
-/>
-
+            <Image
+              height={64}
+              width={64}
+              src={categoryImages[cat] || categoryImages.Default}
+              alt={cat}
+              className="w-16 h-16 object-contain mb-3"
+            />
             <span className="text-lg font-semibold text-yellow-700">{cat}</span>
           </Link>
         ))}

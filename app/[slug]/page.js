@@ -1,5 +1,5 @@
 "use client";
-import { customers } from "@/data/customers";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,23 +7,54 @@ import ContactForm from "@/components/eMitter/ContactForm";
 import { QRCodeCanvas } from "qrcode.react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, use } from "react"; 
-
-// ✅ Import Swiper styles
+import { useState, useEffect } from "react";
+import { use } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-export default function Page({ params }) {
+export default function Page({params}) {
+  const { slug } = use(params);
+  const [customer, setCustomer] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [showQR, setShowQR] = useState(false);
 
-  const { slug } = use(params); 
-  const slugLower = slug.toLowerCase();
-  const customer = customers.find(
-    (c) => c.slug.toLowerCase() === slugLower
-  );
+  useEffect(() => {
+    async function fetchCustomer() {
+      try {
+        const res = await fetch(
+          "https://shopneo-backend.onrender.com/api/v1/customer/getcustomer",
+          { cache: "no-store" }
+        );
+        const data = await res.json();
+
+        const customers = data.customers || [];
+        const slugLower = slug.toLowerCase();
+
+        const found = customers.find(
+          (c) => c.slug.toLowerCase() === slugLower
+        );
+
+        setCustomer(found || null);
+      } catch (err) {
+        console.error("Error fetching customer:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchCustomer();
+  },);
+
+  if (loading) {
+    return <div className="p-6 text-center">⏳ Loading...</div>;
+  }
 
   if (!customer) {
-    return <div className="p-6 text-red-500 text-center py-20">❌ Page not found!</div>;
+    return (
+      <div className="p-6 text-red-500 text-center py-20">
+        ❌ Customer not found!
+      </div>
+    );
   }
 
   // ✅ Share handler
@@ -62,25 +93,27 @@ export default function Page({ params }) {
 
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Banner & Profile */}
       <div className="relative">
         <div className="absolute bottom-[-50%] transform -translate-y-1/2 left-0">
           <Image
-            src={customer.profile}
-            alt={customer.name}
+            src={customer?.profileImage?.url || "https://via.placeholder.com/80"}
+            alt={customer?.name || "Seller Logo"}
             width={144}
             height={144}
             className="object-cover h-28 w-28 sm:h-36 sm:w-36 rounded-full border shadow"
           />
         </div>
-        <img
-          className="w-full h-[200px] object-cover rounded-lg mb-8"
-          height={300}
-          width={1200}
-          src={customer.banner}
-          alt={`${customer.businessName} Banner`} />
+       <Image
+  className="w-full h-[200px] object-cover rounded-lg mb-8"
+  height={300}
+  width={1200}
+  src={customer?.bannerImage?.url || "https://via.placeholder.com/1200x300"}
+  alt={`${customer?.businessName || "Business"} Banner`}
+/>
       </div>
 
-
+      {/* Customer Info */}
       <div className="lg:w-10/12 md:w-9/12 sm:w-9/12 sm:ps-3 mt-14">
         {customer.name && (
           <h1 className="text-3xl font-bold">{customer.name}</h1>
@@ -88,12 +121,12 @@ export default function Page({ params }) {
 
         {customer.businessName && (
           <p className="text-lg font-semibold text-gray-600">
-            🛍️{customer.businessName}
+            🛍️ {customer.businessName}
           </p>
         )}
 
         {customer.location && (
-          <p className="text-gray-500 text-sm">📍{customer.location}</p>
+          <p className="text-gray-500 text-sm">📍 {customer.location}</p>
         )}
 
         {customer.description && (
@@ -109,47 +142,48 @@ export default function Page({ params }) {
           {customer.alternativeNumber && <span>📱 {customer.alternativeNumber}</span>}
 
           {customer.whatsapp && (
-            <Link href={customer.whatsapp} target="_blank">💬 WhatsApp</Link>
+            <Link href={customer.whatsapp || "#"} target="_blank">💬 WhatsApp</Link>
           )}
           {customer.instagram && (
-            <Link href={customer.instagram} target="_blank">📸 Instagram</Link>
+            <Link href={customer.instagram || "#"} target="_blank">📸 Instagram</Link>
           )}
           {customer.facebook && (
-            <Link href={customer.facebook} target="_blank">📘 Facebook</Link>
+            <Link href={customer.facebook || "#"} target="_blank">📘 Facebook</Link>
           )}
           {customer.youtube && (
-            <Link href={customer.youtube} target="_blank">▶ YouTube</Link>
+            <Link href={customer.youtube || "#"} target="_blank">▶ YouTube</Link>
           )}
         </div>
-         {/* Buttons */}
-      <div className="flex gap-4 mt-6">
-        <button
-          onClick={handleShare}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
-        >
-          🔗 Share Website
-        </button>
 
-        <button
-          onClick={() => {
-            setShowQR(true);
-            setTimeout(handleDownloadQR, 500);
-          }}
-          className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
-        >
-          📥 Download QR
-        </button>
-      </div>
+        {/* Buttons */}
+        <div className="flex gap-4 mt-6">
+          <button
+            onClick={handleShare}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700"
+          >
+            🔗 Share Website
+          </button>
 
-      {/* Hidden QR Code (for download) */}
-      {showQR && (
-        <div className="hidden">
-          <QRCodeCanvas id="qrCode" value={window.location.href} size={200} />
+          <button
+            onClick={() => {
+              setShowQR(true);
+              setTimeout(handleDownloadQR, 500);
+            }}
+            className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
+          >
+            📥 Download QR
+          </button>
         </div>
-      )}
+
+        {/* Hidden QR Code */}
+        {showQR && (
+          <div className="hidden">
+            <QRCodeCanvas id="qrCode" value={window.location.href} size={200} />
+          </div>
+        )}
       </div>
 
-      {/* Products Section */}
+      {/* Products */}
       <div>
         <h2 className="text-2xl font-semibold mb-4 mt-5">Products</h2>
         <div className="relative">
@@ -178,16 +212,17 @@ export default function Page({ params }) {
                 className="border rounded-xl p-6 flex flex-col items-center text-center bg-gray-50 hover:bg-gray-100 transition"
               >
                 <Image
-                  src={product.image}
-                  alt={product.name}
+            src={product?.image?.url || "https://via.placeholder.com/80"}
+            alt={product?.name || "product image"}
                   width={200}
                   height={200}
                   className="w-full h-32 object-cover mb-3"
                 />
+                
                 <h3 className="font-semibold text-lg">{product.name}</h3>
                 <p className="text-gray-600 text-sm mb-3">{product.description}</p>
                 <Link
-                  href={product.whatsappUrl}
+                  href={product.whatsappUrl || "#"}
                   target="_blank"
                   className="px-4 py-2 bg-green-500 text-white rounded-lg text-sm"
                 >
@@ -205,48 +240,44 @@ export default function Page({ params }) {
             <ChevronRight size={24} />
           </button>
         </div>
-
-        {/* Gallery Section */}
       </div>
-      {/* gallery section */}
+
+      {/* Gallery */}
       <div>
         <h2 className="text-2xl font-semibold mb-6">Gallery</h2>
-
         <div className="relative">
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            autoplay={{ delay: 2000, disableOnInteraction: false }}
-            loop={true}
-            speed={800}
-            slidesPerView={4}
-            spaceBetween={20}
-            navigation={{
-              nextEl: ".gallery-next",
-              prevEl: ".gallery-prev",
-            }}
-            breakpoints={{
-              1200: { slidesPerView: 4 },
-              992: { slidesPerView: 3 },
-              768: { slidesPerView: 2 },
-              0: { slidesPerView: 1 },
-            }}
-            className="gallery_slider max-w-[2200px] mx-auto mb-10"
-          >
-            {customer.gallery.map((img, idx) => (
-              <SwiperSlide
-                key={idx}
-                className="flex justify-center items-center px-3"
-              >
-                <Image
-                  src={img}
-                  alt={`Gallery ${idx + 1}`}
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+         <Swiper
+  modules={[Autoplay, Navigation]}
+  autoplay={{ delay: 2000, disableOnInteraction: false }}
+  loop={true}
+  speed={800}
+  slidesPerView={4}
+  spaceBetween={20}
+  navigation={{
+    nextEl: ".gallery-next",
+    prevEl: ".gallery-prev",
+  }}
+  breakpoints={{
+    1200: { slidesPerView: 4 },
+    992: { slidesPerView: 3 },
+    768: { slidesPerView: 2 },
+    0: { slidesPerView: 1 },
+  }}
+  className="gallery_slider max-w-[2200px] mx-auto mb-10"
+>
+  {(customer.galleryImages || []).map((img) => (
+    <SwiperSlide key={img._id}>
+      <Image
+        width={200}
+        height={150}
+        src={img?.url || "https://via.placeholder.com/80"}
+        alt="Gallery"
+        className="w-40 h-40 rounded-lg border shadow object-cover"
+      />
+    </SwiperSlide>
+  ))}
+</Swiper>
+
           {/* Custom Arrows */}
           <button className="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-amber-500 text-white p-2 rounded-full shadow-md transition-all duraction-300 hover:text-black cursor-pointer">
             <ChevronLeft size={24} />
@@ -257,7 +288,7 @@ export default function Page({ params }) {
         </div>
       </div>
 
-      {/* Blogs Section */}
+      {/* Blogs */}
       <div>
         <h2 className="text-2xl font-semibold mb-6">Blogs</h2>
         <div className="relative">
@@ -286,27 +317,22 @@ export default function Page({ params }) {
                 className="border rounded-xl p-6 bg-white shadow hover:shadow-md transition"
               >
                 <Image
-                  src={blog.img}
-                  alt={blog.heading}
+             src={blog?.image?.url || "https://via.placeholder.com/80"}
+            alt={blog?.name || "Blog image"}
                   width={400}
                   height={200}
                   className="w-full h-40 object-cover rounded mb-4"
                 />
-               <h3 
-  title={blog.heading} 
-  className="text-xl font-semibold mb-2 truncate"
->
-  {blog.heading}
-</h3>
-<p 
-  className="text-gray-600 text-sm line-clamp-2"
->
-  {blog.description}
-</p>
-
+                <h3 title={blog.heading} className="text-xl font-semibold mb-2 truncate">
+                  {blog.heading}
+                </h3>
+                <p className="text-gray-600 text-sm line-clamp-2">
+                  {blog.description}
+                </p>
               </SwiperSlide>
             ))}
           </Swiper>
+
           {/* Custom Arrows */}
           <button className="blogs-prev absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-amber-500 text-white p-2 rounded-full shadow-md transition-all duraction-300 hover:text-black cursor-pointer">
             <ChevronLeft size={24} />
@@ -316,19 +342,28 @@ export default function Page({ params }) {
           </button>
         </div>
       </div>
-      {/* contact form */}
+
+      {/* Contact Form */}
       <ContactForm email={customer.email} />
+
       {/* Business Hours */}
       <div>
         <h2 className="text-2xl font-semibold mb-6">Business Hours</h2>
         <div className="border rounded-lg p-6 mb-10">
           <ul className="space-y-2">
-            {Object.entries(customer.businessHours).map(([day, hours]) => (
-              <li key={day} className="flex justify-between">
-                <span className="font-medium capitalize">{day}</span>
-                <span>{hours}</span>
-              </li>
-            ))}
+            {customer?.businessHours &&
+      Object.entries(customer.businessHours).map(([day, hours]) => (
+        <li key={day} className="flex justify-between text-sm text-gray-700">
+          <span className="capitalize">{day}</span>
+          {hours?.open && hours?.close ? (
+            <span>
+              {hours.open} - {hours.close}
+            </span>
+          ) : (
+            <span className="text-gray-400">Closed</span>
+          )}
+        </li>
+      ))}
           </ul>
         </div>
       </div>

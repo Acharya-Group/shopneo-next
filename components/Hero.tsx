@@ -17,7 +17,7 @@ export default function HeroSection() {
             <div className="sm:mt-10 mt-6 animate__animated animate__swing animate__delay-2s">
                       <Button
                 label="Register as Seller"
-                href="http://shopneo.org/https://admin-dashboard.shopneo.in/sign-up/"
+                href="https://admin-dashboard.shopneo.in/sign-up/"
                 target="_blank"
                 className="bg-yellow-500 text-white hover:bg-yellow-400 py-3 px-6"
               />

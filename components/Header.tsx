@@ -60,7 +60,7 @@ export default function Header() {
               </Link>
           <Button
   label="Register as Seller"
-  href="http://shopneo.org/https://admin-dashboard.shopneo.in/sign-up/"
+  href="https://admin-dashboard.shopneo.in/sign-up/"
   target="_blank"
   className="bg-yellow-500 text-white hover:bg-yellow-400"
 />
