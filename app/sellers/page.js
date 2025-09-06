@@ -16,7 +16,7 @@ export default function SellersPage() {
   useEffect(() => {
     async function fetchSellers() {
       try {
-        const res = await fetch("https://shopneo-backend.onrender.com/api/v1/seller/getsellers");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/seller/getsellers`);
         const data = await res.json();
         setSellers(data.sellers || []);
       } catch (err) {

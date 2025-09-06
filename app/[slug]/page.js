@@ -22,7 +22,7 @@ export default function Page({params}) {
     async function fetchCustomer() {
       try {
         const res = await fetch(
-          "https://shopneo-backend.onrender.com/api/v1/customer/getcustomer",
+         `${process.env.NEXT_PUBLIC_API_URL}/customer/getcustomer`,
           { cache: "no-store" }
         );
         const data = await res.json();
