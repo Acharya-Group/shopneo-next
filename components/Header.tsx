@@ -89,6 +89,14 @@ export default function Header() {
                 Pricing
               </Link>
             </li>
+              <li>
+              <Link
+                href="/sellers"
+                className="text-gray-800 hover:text-yellow-500"
+              >
+               Our Partners
+              </Link>
+            </li>
             <li>
               <Link
                 href="#contact"
@@ -109,7 +117,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="https://admin-dashboard.shopneo.in/"
+                href="https://admin-dashboard.shopneo.in/sign-up/"
                 target="_blank"
                 className="px-4 py-2 rounded-full bg-yellow-500 text-white font-semibold hover:bg-yellow-600 transition inline-block"
               >
